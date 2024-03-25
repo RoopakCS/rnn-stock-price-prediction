@@ -102,13 +102,25 @@ model.fit(X_train1,y_train,epochs=100, batch_size=32)
 ````python
 dataset_test = pd.read_csv('testset.csv')
 ````
-````
+## Selecting all rows and the column with index 1
+````python
 test_set = dataset_test.iloc[:,1:2].values
+````
+## Displaying the shape of the testing data
+````python
 test_set.shape
+````
+## Concatenating the 'Open' columns from testing dataset and training dataset
+````python
 dataset_total = pd.concat((dataset_train['Open'],dataset_test['Open']),axis=0)
 inputs = dataset_total.values
 inputs = inputs.reshape(-1,1)
+````
+## Transforming the inputs
+````python
 inputs_scaled=sc.transform(inputs)
+````
+````python
 X_test = []
 for i in range(60,1384):
   X_test.append(inputs_scaled[i-60:i,0])
