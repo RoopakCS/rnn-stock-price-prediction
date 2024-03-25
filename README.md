@@ -25,6 +25,7 @@ Write your own steps
 **Name: Roopak C S**
 
 **Register number: 212223220088**
+## Importing modules
 ````python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -32,16 +33,41 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 from keras import layers
 from keras.models import Sequential
+````
+## Loading the training dataset
+````python
 dataset_train = pd.read_csv('trainset.csv')
-
+````
+## Reading only columns
+````python
 dataset_train.columns
+````
+## Displaying the first five rows of the dataset
+````python
 dataset_train.head()
+````
+## Selecting all rows and the column with index 1
+````python
 train_set = dataset_train.iloc[:,1:2].values
+````
+## Displaying the type of the training dataset
+````python
 type(train_set)
+````
+## Displaying the shape of the training dataset
+````python
 train_set.shape
+````
+## Scaling the dataset using MinMaxScaler
+````python
 sc = MinMaxScaler(feature_range=(0,1))
 training_set_scaled = sc.fit_transform(train_set)
+````
+## Displaying the shape of the scaled training data set
+````python
 training_set_scaled.shape
+````
+````python
 X_train_array = []
 y_train_array = []
 for i in range(60, 1259):
@@ -53,14 +79,30 @@ X_train1 = X_train.reshape((X_train.shape[0], X_train.shape[1],1))
 X_train.shape
 length = 60
 n_features = 1
+````
+## Creating the model
+````python
 model = Sequential()
-## Write your code here
 model.add(layers.SimpleRNN(50, input_shape=(length, n_features)))
 model.add(layers.Dense(1))
+````
+## Compiling the model
+````python
 model.compile(optimizer='adam', loss='mse')
+````
+## Printing the summary of the model
+````python
 model.summary()
+````
+## Fitting the model
+````python
 model.fit(X_train1,y_train,epochs=100, batch_size=32)
+````
+## Reading the testing dataset
+````python
 dataset_test = pd.read_csv('testset.csv')
+````
+````
 test_set = dataset_test.iloc[:,1:2].values
 test_set.shape
 dataset_total = pd.concat((dataset_train['Open'],dataset_test['Open']),axis=0)
@@ -75,6 +117,9 @@ X_test = np.reshape(X_test,(X_test.shape[0], X_test.shape[1],1))
 X_test.shape
 predicted_stock_price_scaled = model.predict(X_test)
 predicted_stock_price = sc.inverse_transform(predicted_stock_price_scaled)
+````
+## Plotting the graph between True Stock Price, Predicted Stock Price vs time
+````python
 plt.plot(np.arange(0,1384),inputs, color='red', label = 'Test(Real) Google stock price')
 plt.plot(np.arange(60,1384),predicted_stock_price, color='blue', label = 'Predicted Google stock price')
 plt.title('Google Stock Price Prediction')
