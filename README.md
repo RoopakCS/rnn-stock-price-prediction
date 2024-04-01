@@ -10,11 +10,15 @@ To develop a Recurrent Neural Network model for stock price prediction.
 
 ### STEP 1:
 
+Import the necessary tensorflow modules
+
 ### STEP 2:
+
+Load the stock dataset.
 
 ### STEP 3:
 
-Write your own steps
+Fit the model and then predict.
 
 ## PROGRAM
 
@@ -130,7 +134,7 @@ predicted_stock_price = sc.inverse_transform(predicted_stock_price_scaled)
 ````python
 plt.plot(np.arange(0,1384),inputs, color='red', label = 'Test(Real) Google stock price')
 plt.plot(np.arange(60,1384),predicted_stock_price, color='blue', label = 'Predicted Google stock price')
-plt.title('Google Stock Price Prediction')
+plt.title('Roopak C S\n212223220088\nGoogle Stock Price Prediction')
 plt.xlabel('Time')
 plt.ylabel('Google Stock Price')
 plt.legend()
@@ -141,7 +145,7 @@ plt.show()
 
 ### True Stock Price, Predicted Stock Price vs time
 
-![image](https://github.com/RoopakCS/rnn-stock-price-prediction/assets/139228922/dd315760-71da-4468-845c-58e639e11e13)
+![image](https://github.com/RoopakCS/rnn-stock-price-prediction/assets/139228922/7eda16ef-7d2d-4c8e-8ac6-6a9044a90354)
 
 ### Mean Square Error
 
