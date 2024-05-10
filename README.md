@@ -6,6 +6,8 @@ To develop a Recurrent Neural Network model for stock price prediction.
 
 ## Problem Statement and Dataset
 Google stock prices are given in trainset.csv and testset.csv files.
+
+
 ![image](https://github.com/RoopakCS/rnn-stock-price-prediction/assets/139228922/6ebf1686-7828-4bb2-b8f1-a48fdc000f7b)
 
 ## DESIGN STEPS
